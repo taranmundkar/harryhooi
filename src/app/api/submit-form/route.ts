@@ -95,9 +95,7 @@ export async function POST(req: Request) {
 
     const sheetId = SHEET_IDS[userType];
 
-    const processedData = Object.entries(otherData).map(([_, value]) => {
-      return preprocessValue(value);
-    });
+    const processedData = Object.values(otherData).map(preprocessValue);
 
     const values = [
       [new Date().toISOString(), name, email, phoneNumber, ...processedData]
