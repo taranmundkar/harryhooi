@@ -51,7 +51,7 @@ const SHEET_IDS = {
   buy: '1Ip6aCWvIpCAxeRkqatyW1YoUoL5az9YUvRVAqiPrCDU',
   sell: '1BTJyzBxA6CBQx-CqkylQXQO958C2ol-e4DiyFiW60e8',
   rent: '1zlvowJzsgzZQB4fVNwHq6xTyXWIAxjHtjclqtqXq3v0'
-};
+} as const;
 
 type FormValue = string | string[] | number | boolean | null | undefined;
 
@@ -95,27 +95,53 @@ export async function POST(req: Request) {
 
     const sheetId = SHEET_IDS[userType];
 
-    const processedData = Object.values(otherData).map(preprocessValue);
+    const processedData = Object.entries(otherData).map(([key, value]) => {
+      const processedValue = preprocessValue(value);
+      console.log(`Processed ${key}:`, processedValue);
+      return processedValue;
+    });
 
     const values = [
-      [new Date().toISOString(), name, email, phoneNumber, ...processedData]
+      [
+        new Date().toISOString(),
+        preprocessValue(name),
+        preprocessValue(email),
+        preprocessValue(phoneNumber),
+        ...processedData
+      ],
     ];
 
-    console.log('Appending data to sheet...');
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: sheetId,
-      range: 'A2:Z',
-      valueInputOption: 'USER_ENTERED',
-      insertDataOption: 'INSERT_ROWS',
-      requestBody: {
-        values: values
-      }
-    });
-    console.log('Data appended successfully');
+    console.log(`Appending data to Google Sheet for ${userType}...`);
+    console.log('Preprocessed values:', JSON.stringify(values, null, 2));
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
+    const response = await sheets.spreadsheets.values.append({
+      spreadsheetId: sheetId,
+      range: 'A2', // Changed from 'A1' to 'A2' to start from the second row
+      valueInputOption: 'USER_ENTERED',
+      insertDataOption: 'INSERT_ROWS', // This ensures new data is inserted as new rows
+      requestBody: { values },
+    });
+
+    console.log(`Data successfully appended to Google Sheet for ${userType}`);
+    return NextResponse.json({ success: true, data: response.data });
+
+  } catch (error: unknown) {
     console.error('Error in form submission:', error);
-    return NextResponse.json({ success: false, error: 'An error occurred while submitting the form' }, { status: 500 });
+
+    let errorMessage = 'An unexpected error occurred';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+
+    console.error('Detailed error:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Internal Server Error',
+        message: errorMessage
+      },
+      { status: 500 }
+    );
   }
 }
