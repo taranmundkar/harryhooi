@@ -95,7 +95,7 @@ export async function POST(req: Request) {
 
     const sheetId = SHEET_IDS[userType];
 
-    const processedData = Object.entries(otherData).map(([key, value]) => {
+    const processedData = Object.entries(otherData).map(([_, value]) => {
       return preprocessValue(value);
     });
 
@@ -106,7 +106,7 @@ export async function POST(req: Request) {
     console.log('Appending data to sheet...');
     await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
-      range: 'A2:Z', // Changed to a wider range to accommodate all possible columns
+      range: 'A2:Z',
       valueInputOption: 'USER_ENTERED',
       insertDataOption: 'INSERT_ROWS',
       requestBody: {
