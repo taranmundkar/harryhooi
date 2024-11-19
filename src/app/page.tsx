@@ -354,7 +354,7 @@ export default function LandingPage() {
               </div>
               <div className="mt-6 text-center text-xs text-gray-600">
                 <p>
-                  &copy; 2024 <a href="https://basmapreston.royallepage.ca/" target="_blank" rel="noopener noreferrer" className="hover:underline">Basma Preston</a>. All rights reserved.
+                  &copy; 2024 <a href="https://hrhrealestate.ca/homes/?center=51.048615100000006_-114.0708459&subtype=Detached&zoom=12" target="_blank" rel="noopener noreferrer" className="hover:underline">Harry Hooi</a>. All rights reserved.
                 </p>
                 <p className="mt-1">
                   <a href="https://blog.remax.ca/privacy-notice/?_gl=1*1qqpz4r*_ga*ODc1NjA3OTg1LjE3MzE5NTQ1MjU.*_ga_1K2F9Z3PBF*MTczMTk1NDUyNS4xLjAuMTczMTk1NDUyNy41OC4wLjMzNjM3MTYzNA.." target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:underline">Privacy Policy</a>
@@ -555,7 +555,7 @@ export default function LandingPage() {
         </div>
         <footer className="mt-6 text-center text-xs text-gray-700 drop-shadow">
           <p>
-            &copy; 2024 <a href="https://basmapreston.royallepage.ca/" target="_blank" rel="noopener noreferrer" className="hover:underline">Basma Preston</a>. All rights reserved.
+            &copy; 2024 <a href="https://hrhrealestate.ca/homes/?center=51.048615100000006_-114.0708459&subtype=Detached&zoom=12" target="_blank" rel="noopener noreferrer" className="hover:underline">Harry Hooi</a>. All rights reserved.
           </p>
           <p className="mt-1">
             <a href="https://blog.remax.ca/privacy-notice/?_gl=1*1qqpz4r*_ga*ODc1NjA3OTg1LjE3MzE5NTQ1MjU.*_ga_1K2F9Z3PBF*MTczMTk1NDUyNS4xLjAuMTczMTk1NDUyNy41OC4wLjMzNjM3MTYzNA.." target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">Privacy Policy</a>
