@@ -23,24 +23,23 @@ export default function LandingPage() {
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [overallProgress, setOverallProgress] = useState(0);
 
-  // New state for personal information
+  // State for personal information
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [phoneError, setPhoneError] = useState('')
 
-  // Question arrays and handler functions remain the same...
   const buyQuestions: Question[] = [
     {
       id: 'budget',
       question: 'What is your budget for buying a home? (Select all that apply)',
-      options: ['$200,000-$400,000', '$400,000-$600,000', '$600,000-$800,000', '$800,000-$1,000,000', '$1,000,000-$1,500,000', '$1,500,000-$2,000,000', '$2,000,000+'],
+      options: ['$150,000-$250,000', '$250,000-$350,000', '$350,000-$450,000', '$450,000-$550,000', '$550,000-$650,000', '$650,000-$750,000', '$750,000-$850,000', '$850,000-$950,000', '$1,000,000+'],
       multiple: true,
     },
     {
       id: 'homeType',
       question: 'What type of home are you interested in? (Select all that apply)',
-      options: ['Single-family detached', 'Semi-detached', 'Townhouse', 'Condo/Apartment', 'Duplex', 'Bungalow', 'Split-level', 'Cottage/Cabin', 'Mobile home', 'Luxury estate'],
+      options: ['Single Family', 'Semi-Detached', 'Townhouse', 'Condo/Apartment', 'Duplex', 'Bungalow', 'Split-Level', 'Cottage/Cabin', 'Two Apartment', 'Luxury Estate'],
       multiple: true,
     },
     {
@@ -79,7 +78,7 @@ export default function LandingPage() {
     {
       id: 'propertyType',
       question: 'What type of property are you selling?',
-      options: ['Single-family home', 'Condo', 'Townhouse', 'Multi-family home', 'Other'],
+      options: ['Single-Family Home', 'Condo', 'Townhouse', 'Multi-Family Home', 'Other'],
     },
     {
       id: 'bedrooms',
@@ -299,7 +298,7 @@ export default function LandingPage() {
         <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl p-6">
           {!userType ? (
             <div className="space-y-4">
-              <h2 className="text-xl font-semibold text-gray-700 mb-3 text-center">Personal Information</h2>
+              <h2 className="text-xl font-semibold text-gray-700 mb-3 text-center">Enter Your Information Below To Get Access to Exclusive Listings</h2>
               <div className="space-y-4">
                 <input
                   type="text"
@@ -355,10 +354,10 @@ export default function LandingPage() {
               </div>
               <div className="mt-6 text-center text-xs text-gray-600">
                 <p>
-                  &copy; 2024 <a href="https://hrhrealestate.ca/homes/?center=51.048615100000006_-114.0708459&subtype=Detached&zoom=12" target="_blank" rel="noopener noreferrer" className="hover:underline">Harry Hooi</a>. All rights reserved.
+                  &copy; 2024 <a href="https://basmapreston.royallepage.ca/" target="_blank" rel="noopener noreferrer" className="hover:underline">Basma Preston</a>. All rights reserved.
                 </p>
                 <p className="mt-1">
-                  <a href="https://hrhrealestate.ca/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:underline">Privacy Policy</a>
+                  <a href="https://blog.remax.ca/privacy-notice/?_gl=1*1qqpz4r*_ga*ODc1NjA3OTg1LjE3MzE5NTQ1MjU.*_ga_1K2F9Z3PBF*MTczMTk1NDUyNS4xLjAuMTczMTk1NDUyNy41OC4wLjMzNjM3MTYzNA.." target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:underline">Privacy Policy</a>
                 </p>
               </div>
             </div>
@@ -404,7 +403,7 @@ export default function LandingPage() {
                     />
                     <span className="ml-2 text-xs text-gray-700">
                       I consent to submitting my information and agree to the{' '}
-                      <a href="https://hrhrealestate.ca/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">
+                      <a href="https://blog.remax.ca/privacy-notice/?_gl=1*1qqpz4r*_ga*ODc1NjA3OTg1LjE3MzE5NTQ1MjU.*_ga_1K2F9Z3PBF*MTczMTk1NDUyNS4xLjAuMTczMTk1NDUyNy41OC4wLjMzNjM3MTYzNA.." target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">
                         Privacy Policy
                       </a>
                       .
@@ -508,7 +507,7 @@ export default function LandingPage() {
                 onClick={handleFinalSubmit}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md text-white bg-gray-700 hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-gray-500"
               >
-                Confirm and Submit
+                Click Here To Get Access Now
               </button>
             </div>
           ) : isFinalSubmitted ? (
@@ -525,12 +524,12 @@ export default function LandingPage() {
                 A confirmation email has been sent to your provided email address with further details.
               </p>
               <a
-                href="https://api.leadconnectorhq.com/widget/booking/HC97sUMGP7riJ4XarFXS"
+                href="https://api.leadconnectorhq.com/widget/booking/rcuY2nOYTJYGxkewJ7an"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-4 py-2 text-sm border border-gray-300 rounded-md text-white bg-gray-700 hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
               >
-                Book Your Appointment
+                Click To Speak With An Expert
               </a>
               <button
                 onClick={() => {
@@ -556,10 +555,10 @@ export default function LandingPage() {
         </div>
         <footer className="mt-6 text-center text-xs text-gray-700 drop-shadow">
           <p>
-            &copy; 2024 <a href="https://hrhrealestate.ca/homes/?center=51.048615100000006_-114.0708459&subtype=Detached&zoom=12" target="_blank" rel="noopener noreferrer" className="hover:underline">Harry Hooi</a>. All rights reserved.
+            &copy; 2024 <a href="https://basmapreston.royallepage.ca/" target="_blank" rel="noopener noreferrer" className="hover:underline">Basma Preston</a>. All rights reserved.
           </p>
           <p className="mt-1">
-            <a href="https://hrhrealestate.ca/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">Privacy Policy</a>
+            <a href="https://blog.remax.ca/privacy-notice/?_gl=1*1qqpz4r*_ga*ODc1NjA3OTg1LjE3MzE5NTQ1MjU.*_ga_1K2F9Z3PBF*MTczMTk1NDUyNS4xLjAuMTczMTk1NDUyNy41OC4wLjMzNjM3MTYzNA.." target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">Privacy Policy</a>
           </p>
         </footer>
       </main>
