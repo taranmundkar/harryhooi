@@ -222,7 +222,7 @@ export default function LandingPage() {
 
   const handleFinalSubmit = async () => {
     console.log('Form submitted:', { name, email, phoneNumber, userType, ...answers })
-    
+
     try {
       const response = await fetch('/api/submit-form', {
         method: 'POST',
@@ -524,7 +524,7 @@ export default function LandingPage() {
                 A confirmation email has been sent to your provided email address with further details.
               </p>
               <a
-                href="https://api.leadconnectorhq.com/widget/booking/rcuY2nOYTJYGxkewJ7an"
+                href="https://api.leadconnectorhq.com/widget/booking/HC97sUMGP7riJ4XarFXS"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-4 py-2 text-sm border border-gray-300 rounded-md text-white bg-gray-700 hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
